@@ -1,0 +1,24 @@
+{% extends "lessons/base.html" %}
+<!-- -->
+<!-- -->
+{% block content %}
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Log in!</legend>
+      {{ form.as_p }}
+    </fieldset>
+    <div class="form-group py-3">
+      <input class="btn btn-outline-primary" type="submit" value="Login" />
+    </div>
+  </form>
+  <div class="border-top pt-3">
+    <a class="text-muted" href="{% url 'users-register' %}"
+      >Don't have an account? Register.</a
+    >
+  </div>
+</div>
+
+<!-- -->
+{% endblock content %}
