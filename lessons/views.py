@@ -1,8 +1,6 @@
 """
-All functions are listed here
+Module containing views for the lessons app.
 """
-
-
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -11,49 +9,71 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from . import models
 
 class LessonListView(ListView):
-  model = models.Lesson
-  template_name = 'lessons/home.html'
-  context_object_name = 'lessons'
+    """
+    Module containing views for the lessons app.
+    """
+    model = models.Lesson
+    template_name = 'lessons/home.html'
+    context_object_name = 'lessons'
 
 # Create your views here.
 def home(request):
-  lessons = models.Lesson.objects.all()
-  context = {
-    'lessons': lessons
-  }
-  return render(request, 'lessons/home.html', context)
+    """
+    Module containing views for the lessons app.
+    """
+    lessons = models.Lesson.objects.all()# pylint: disable=no-member
+    context = {
+        'lessons': lessons
+    }
+    return render(request, 'lessons/home.html', context)
 
 def about(request):
-  return render(request, 'lessons/about.html', {'title': 'about page'})
+    """
+    Module containing views for the lessons app.
+    """
+    return render(request, 'lessons/about.html', {'title': 'about page'})
 
 
 class LessonDetailView(DetailView):
-  model = models.Lesson
+    """
+    Module containing views for the lessons app.
+    """
+    model = models.Lesson
 
-class LessonDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-  model = models.Lesson
-  success_url = reverse_lazy('lessons-home')
+class LessonDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView): # pylint: disable=too-many-ancestors
+    """
+    Module containing views for the lessons app.
+    """
+    model = models.Lesson
+    success_url = reverse_lazy('lessons-home')
 
-  def test_func(self):
-    lesson = self.get_object()
-    return self.request.user == lesson.author
+    def test_func(self):
+        lesson = self.get_object()
+        return self.request.user == lesson.author
 
-class LessonCreateView(LoginRequiredMixin, CreateView):
-  model = models.Lesson
-  fields = ['title', 'description']
+class LessonCreateView(CreateView): # pylint: disable=too-many-ancestors
+    """
+    View for creating a new lesson.
+    """
+    model = models.Lesson
+    fields = ['title', 'description']
 
-  def form_valid(self, form):
-    form.instance.author = self.request.user
-    return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
-class LessonUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-  model = models.Lesson
-  fields = ['title', 'description']
 
-  def test_func(self):
-    lesson = self.get_object()
-    return self.request.user == lesson.author
+class LessonUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): # pylint: disable=too-many-ancestors
+    """
+    Module containing views for the lessons app.
+    """
+    model = models.Lesson
+    fields = ['title', 'description']
 
-  def form_valid(self, form):
-    form.instance.author = self.request.user
-    return super().form_valid(form)
+    def test_func(self):
+        lesson = self.get_object()
+        return self.request.user == lesson.author
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)

@@ -1,3 +1,5 @@
-from django.test import TestCase
+"""
+Module containing tests for the lessons app.
+"""
 
-# Create your tests here.
+# Your test cases go here

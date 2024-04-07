@@ -1,3 +1,6 @@
-from django.contrib import admin
+"""
+This is for user admin
+"""
+
 
 # Register your models here.
