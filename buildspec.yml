@@ -3,7 +3,7 @@ version: 0.2
 phases:
     install:
         runtime-versions:
-            python: 3.11
+            python: 3.9+
         commands:
             - pip install --upgrade pip
             # Install dependencies needed for running the static analysis
@@ -12,7 +12,7 @@ phases:
         commands:
             - python --version
             - pylint $CODEBUILD_SRC_DIR/*.py
-            - pylint $CODEBUILD_SRC_DIR/config/beinsure_proj/*.py
+            - pylint $CODEBUILD_SRC_DIR/config/*.py
             - pylint $CODEBUILD_SRC_DIR*.py
 artifacts:
     files:
