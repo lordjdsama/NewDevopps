@@ -1,0 +1,17 @@
+.home
+{
+    text-align: center;
+  position: relative;
+  animation: mymove 3s ;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+@keyframes mymove {
+  from {left: -100%;}
+  to {left: 2%;}
+}
+#by{
+    text-align: right;
+}

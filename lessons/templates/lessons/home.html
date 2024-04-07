@@ -1,12 +1,15 @@
 {% extends 'lessons/base.html' %}
 
 {% block content %}
-<h1>Music Lesson App home</h1>
+<div class="home">
+<h1>Welcome to Music Lesson Discussion Page</h1>
+</div>
+    
 {% for lesson in lessons %}
-<div class="card my-4" style="width: 18rem;">
+<div class="card" id="card">
 <div class="card-body">
-<h5 class="card-title">{{ lesson.title }}</h5>
-<h5 class="card-title">{{ lesson.author }}</h5>
+<h5 class="card-title" id="title">And the lesson is - {{ lesson.title }}</h5>
+<h6 class="card-title" id="by">By : {{ lesson.author }} </h6>
 <h6 class="card-subtitle mb-2 text-muted">{{ lesson.description }}</h6>
 <p class="card-text">
     {{ lesson.chord }}
