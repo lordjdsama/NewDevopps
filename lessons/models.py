@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
+"""
+it is a model class for user input
+"""
 class Lesson(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()

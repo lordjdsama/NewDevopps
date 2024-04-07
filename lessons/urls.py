@@ -4,6 +4,10 @@ from . import views
 'app/model_viewtype'
 'lessons/lesson_detail.html'
 
+""""
+All urls are are linked here 
+"""
+
 urlpatterns = [
     path('', views.LessonListView.as_view(), name = "lessons-home"),
     path('lesson/<int:pk>/', views.LessonDetailView.as_view(), name = "lessons-detail"),
