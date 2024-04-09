@@ -21,7 +21,7 @@ artifacts:
   
   
   
-  version: 0.2
+
 env:
   secrets-manager:
     LOGIN: prod/sonar:sonartoken
@@ -31,7 +31,7 @@ env:
 phases:
   install:
     runtime-versions:
-      java: openjdk8
+      java: openjdk11
   pre_build:
     commands:
       - apt-get update
