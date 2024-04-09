@@ -17,7 +17,7 @@ SECRET_KEY = 'uh5_0!vi%u3how07glwe24+hd_(dsnefa&mcx+6rhvwop7-bby'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['8b8ccc5eccf847f48d577b346184d8d9.vfs.cloud9.eu-west-1.amazonaws.com','x23244119musiclesson-env.eba-hqs2fe37.eu-west-2.elasticbeanstalk.com']
 
 # Application definition
 
